@@ -1,7 +1,14 @@
 $('.btn').on('click', function (event) {
     event.preventDefault();
 
-    console.log('clicked');
+    // console.log('clicked');
+
+    let startingBet = $('#starting-bet').val()
+
+    startingBet = startingBet.replace(/\$/g,'');
+
+    // console.log(startingBet);
+
 })
 
 
