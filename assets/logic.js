@@ -1,5 +1,19 @@
-const gameStart = startingBet => {
-  console.log(startingBet)
+let gameWins = 0;
+let rolls = 0;
+let highestWinnings = 0;
+let highestRoll = 0;
+let gamesPlayed = 1;
+let gameOver = false;
+
+const updateButton = gamesPlayed => {
+  if (gamesPlayed > 0) {
+    $('#play').html('Play Again');
+  }
+}
+
+
+const gameStart = userMoney => {
+  // console.log(userMoney)
 }
 
 $('.btn').on('click', function (event) {
@@ -7,19 +21,19 @@ $('.btn').on('click', function (event) {
 
     // console.log('clicked');
 
-    let startingBet = $('#starting-bet').val()
+    let userMoney = $('#starting-bet').val().trim();
 
-    startingBet = startingBet.replace(/\$/g,'');
+    userMoney = userMoney.replace(/\$/g,'');
 
-    // console.log(startingBet);
+    // console.log(userMoney);
 
-    if (startingBet < 1) {
-      return alert("You must bet at least $1.00");
+    if (userMoney < 1) {
+      return alert("You must bet at least $1.00.");
     }
 
     $('#starting-bet').val("");
 
-    gameStart(startingBet);
+    gameStart(userMoney);
 
 })
 
