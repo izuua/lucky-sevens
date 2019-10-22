@@ -8,8 +8,7 @@
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css'>
     <link rel='stylesheet' type='text/css' href='assets/styles.css'>
-    <link rel='stylesheet' type='text/css' href='./assets/bootstrap.min.css'>
-    <title>Home Page</title>
+    <title>Lucky Sevens</title>
 </head>
 
 <body>
@@ -19,30 +18,19 @@
         </div>
     </div>
 
-    <div class='row'>
-        <div class='col-sm-4'></div>
-        <div class='col-sm-4 text-center'>
-            <span>Starting Bet:</span>
-            <span id='starting-bet'>$0.00</span>
+    <form>
+        <div class='form-group row justify-content-center'>
+            <label for='startingBet' class='col-auto col-form-label'>Starting Bet:</label>
+            <div class='col-auto'>
+                <input type='currency' id='starting-bet' placeholder='$0.00' data-type='currency'>
+            </div>
         </div>
-        <div class='col-sm-4'></div>
-    </div>
-
-    <div class='row'>
-        <div class='col-sm-4'></div>
-        <div class='col-sm-4 text-center'>
-            <button type='submit' class='btn btn-primary' id='play'>Play</button>
+        <div class='form-group row justify-content-center'>
+            <div class='col-auto text-center'>
+                <button type='submit' class='btn btn-primary' id='play'>Play</button>
+            </div>
         </div>
-        <div class='col-sm-4'></div>
-    </div>
-
-    <div class='row' hidden>
-        <div class='col-sm-4'></div>
-        <div class='col-sm-4 text-center'>
-            <button type='submit' class='btn btn-primary' id='play-again'>Play Again</button>
-        </div>
-        <div class='col-sm-4'></div>
-    </div>
+    </form>
 
 
     <script src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js'></script>
