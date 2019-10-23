@@ -29,8 +29,8 @@ const round = userMoney => {
   // console.log(diceTotal);
 
   rolls++;
-  console.log(`rolls = ${rolls}`);
-  console.log(`diceTotal = ${diceTotal}`);
+  // console.log(`rolls = ${rolls}`);
+  // console.log(`diceTotal = ${diceTotal}`);
   
   
   if (diceTotal === 7) {
@@ -39,7 +39,15 @@ const round = userMoney => {
     userMoney -= 1;
   }
 
-  console.log(`money = ${userMoney}`);
+  if (userMoney > highestWinnings) {
+    highestWinnings = userMoney;
+    highestRoll = rolls;
+  }
+
+  // console.log('rolled')
+  // console.log(`money = ${userMoney}`);
+  // console.log(`highest winning = ${highestWinnings}`);
+  
   
   if (userMoney > 0) {
     round(userMoney);
@@ -51,6 +59,7 @@ const round = userMoney => {
 
 const gameStart = userMoney => {
   // console.log(userMoney)
+  // highestWinnings = userMoney;
   rolls = 0;
   console.log(`New Game! Bet = ${userMoney}`)
 

@@ -13,5 +13,7 @@ form {
 }
 
 table{
-    overflow: hidden;
+    border: 1px;
+    border-color: black;
+    border-style: solid;
 }
