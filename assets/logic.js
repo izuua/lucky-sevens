@@ -32,7 +32,7 @@ const round = userMoney => {
   console.log(`rolls = ${rolls}`);
   console.log(`diceTotal = ${diceTotal}`);
   
-
+  
   if (diceTotal === 7) {
     userMoney += 4;
   } else {
@@ -43,6 +43,8 @@ const round = userMoney => {
   
   if (userMoney > 0) {
     round(userMoney);
+  } else {
+    results();
   }
 
 }
@@ -52,16 +54,21 @@ const gameStart = userMoney => {
   rolls = 0;
   console.log(`New Game! Bet = ${userMoney}`)
 
-  $('#results').hide();
-
   round(userMoney);
+
 }
 
-const results = userMoney => {
-  
+const results = () => {
+  // console.log('results ran');
+  $('#table-start-bet').html(`$${startingBet}`);
+  $('#table-rolls').html(rolls);
+  $('#table-highest-won').html(`$${highestWinnings}`);
+  $('#table-highest-roll').html(highestRoll);
 
-  $('#results').show();
+  $('#results').removeAttr('hidden');
 }
+
+// $('#results').hide();
 
 $('.btn').on('click', function (event) {
     event.preventDefault();
