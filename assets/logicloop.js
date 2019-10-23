@@ -78,9 +78,9 @@ const gameStart = () => {
 
 const results = () => {
     // console.log('results ran');
-    $('#table-start-bet').html(`$${startingBet}`);
+    $('#table-start-bet').html(`$${startingBet.toFixed(2)}`);
     $('#table-rolls').html(rolls);
-    $('#table-highest-won').html(`$${highestWinnings}`);
+    $('#table-highest-won').html(`$${highestWinnings.toFixed(2)}`);
     $('#table-highest-roll').html(highestRoll);
 
     $('#results').removeAttr('hidden');
