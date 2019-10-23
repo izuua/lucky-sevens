@@ -3,7 +3,7 @@ let gameWins = 0;
 let rolls = 0;
 let highestWinnings = 0;
 let highestRoll = 0;
-let gamesPlayed = 1;
+let gamesPlayed = 0;
 // let gameOver = false;
 
 const Random = (min, max) => {
@@ -31,24 +31,26 @@ const round = userMoney => {
   rolls++;
   // console.log(`rolls = ${rolls}`);
   // console.log(`diceTotal = ${diceTotal}`);
-  
-  
+
+
   if (diceTotal === 7) {
     userMoney += 4;
+    if (userMoney > highestWinnings) {
+      console.log('highest winnings if ran');
+      highestWinnings = userMoney;
+      highestRoll = rolls;
+    }
   } else {
     userMoney -= 1;
   }
 
-  if (userMoney > highestWinnings) {
-    highestWinnings = userMoney;
-    highestRoll = rolls;
-  }
+
 
   // console.log('rolled')
-  // console.log(`money = ${userMoney}`);
+  console.log(`money = ${userMoney}`);
   // console.log(`highest winning = ${highestWinnings}`);
-  
-  
+
+
   if (userMoney > 0) {
     round(userMoney);
   } else {
@@ -61,6 +63,8 @@ const gameStart = userMoney => {
   // console.log(userMoney)
   // highestWinnings = userMoney;
   rolls = 0;
+  highestWinnings = 0;
+  highestRoll = 0;
   console.log(`New Game! Bet = ${userMoney}`)
 
   round(userMoney);
@@ -80,38 +84,38 @@ const results = () => {
 // $('#results').hide();
 
 $('.btn').on('click', function (event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    // console.log('clicked');
+  // console.log('clicked');
 
-    let userMoney = $('#starting-bet').val().trim();
+  let userMoney = $('#starting-bet').val().trim();
 
-    userMoney = userMoney.replace(/\$/g,'');
-    userMoney = parseFloat(userMoney);
+  userMoney = userMoney.replace(/\$/g, '');
+  userMoney = parseFloat(userMoney);
 
-    // console.log(userMoney);
+  // console.log(userMoney);
 
-    if (userMoney <= 0 || isNaN(userMoney)) {
-      return alert("You must bet more than $0.");
-    }
+  if (userMoney <= 0 || isNaN(userMoney)) {
+    return alert("You must bet more than $0.");
+  }
 
-    startingBet = userMoney;
+  startingBet = userMoney;
 
-    $('#starting-bet').val("");
+  $('#starting-bet').val("");
 
-    gameStart(userMoney);
+  gameStart(userMoney);
 })
 
 
 
 //following code is to make the input form only accept currency
 $('input[data-type="currency"]').on({
-    keyup: function() {
-      formatCurrency($(this));
-    },
-    blur: function() { 
-      formatCurrency($(this), 'blur');
-    }
+  keyup: function () {
+    formatCurrency($(this));
+  },
+  blur: function () {
+    formatCurrency($(this), 'blur');
+  }
 });
 
 
@@ -124,19 +128,19 @@ function formatNumber(n) {
 function formatCurrency(input, blur) {
   // appends $ to value, validates decimal side
   // and puts cursor back in right position.
-  
+
   // get input value
   var input_val = input.val();
-  
+
   // don't validate empty input
   if (input_val === '') { return; }
-  
+
   // original length
   var original_len = input_val.length;
 
   // initial caret position 
   var caret_pos = input.prop('selectionStart');
-    
+
   // check for decimal
   if (input_val.indexOf('.') >= 0) {
 
@@ -154,12 +158,12 @@ function formatCurrency(input, blur) {
 
     // validate right side
     right_side = formatNumber(right_side);
-    
+
     // On blur make sure 2 numbers after decimal
     if (blur === 'blur') {
       right_side += '00';
     }
-    
+
     // Limit decimal to only 2 digits
     right_side = right_side.substring(0, 2);
 
@@ -172,13 +176,13 @@ function formatCurrency(input, blur) {
     // remove all non-digits
     input_val = formatNumber(input_val);
     input_val = '$' + input_val;
-    
+
     // final formatting
     if (blur === 'blur') {
       input_val += '.00';
     }
   }
-  
+
   // send updated string to input
   input.val(input_val);
 
