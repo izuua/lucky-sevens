@@ -1,9 +1,14 @@
+let startingBet = 0;
 let gameWins = 0;
 let rolls = 0;
 let highestWinnings = 0;
 let highestRoll = 0;
 let gamesPlayed = 1;
-let gameOver = false;
+// let gameOver = false;
+
+const Random = (min, max) => {
+  return Math.floor((Math.random() * max) + min)
+}
 
 const updateButton = gamesPlayed => {
   if (gamesPlayed > 0) {
@@ -11,9 +16,51 @@ const updateButton = gamesPlayed => {
   }
 }
 
+const round = userMoney => {
+  updateButton(gamesPlayed);
+  gamesPlayed++;
+
+  let dice1 = Random(1, 6);
+  let dice2 = Random(1, 6);
+  let diceTotal = dice1 + dice2;
+
+  // console.log(dice1);
+  // console.log(dice2);
+  // console.log(diceTotal);
+
+  rolls++;
+  console.log(`rolls = ${rolls}`);
+  console.log(`diceTotal = ${diceTotal}`);
+  
+
+  if (diceTotal === 7) {
+    userMoney += 4;
+  } else {
+    userMoney -= 1;
+  }
+
+  console.log(`money = ${userMoney}`);
+  
+  if (userMoney > 0) {
+    round(userMoney);
+  }
+
+}
 
 const gameStart = userMoney => {
   // console.log(userMoney)
+  rolls = 0;
+  console.log(`New Game! Bet = ${userMoney}`)
+
+  $('#results').hide();
+
+  round(userMoney);
+}
+
+const results = userMoney => {
+  
+
+  $('#results').show();
 }
 
 $('.btn').on('click', function (event) {
@@ -24,17 +71,19 @@ $('.btn').on('click', function (event) {
     let userMoney = $('#starting-bet').val().trim();
 
     userMoney = userMoney.replace(/\$/g,'');
+    userMoney = parseFloat(userMoney);
 
     // console.log(userMoney);
 
-    if (userMoney < 1) {
-      return alert("You must bet at least $1.00.");
+    if (userMoney <= 0 || isNaN(userMoney)) {
+      return alert("You must bet more than $0.");
     }
+
+    startingBet = userMoney;
 
     $('#starting-bet').val("");
 
     gameStart(userMoney);
-
 })
 
 

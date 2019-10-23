@@ -11,3 +11,7 @@
 form {
     margin-top: 25px;
 }
+
+table{
+    overflow: hidden;
+}
