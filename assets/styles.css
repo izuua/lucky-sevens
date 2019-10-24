@@ -1,6 +1,9 @@
+* {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
 .page-header {
     text-align: center;
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
     /* width: 100%; */
 }
 
