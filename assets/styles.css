@@ -17,3 +17,7 @@ table{
     border-color: black;
     border-style: solid;
 }
+
+h2 {
+    text-align: center;
+}
