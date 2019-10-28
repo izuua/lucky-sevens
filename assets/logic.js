@@ -1,4 +1,3 @@
-let startingBet = 0;
 let gameWins = 0;
 let rolls = 0;
 let highestWinnings = 0;
@@ -16,7 +15,7 @@ const updateButton = gamesPlayed => {
   }
 }
 
-const round = userMoney => {
+const round = (userMoney, startingBet) => {
   updateButton(gamesPlayed);
   gamesPlayed++;
 
@@ -52,14 +51,14 @@ const round = userMoney => {
 
 
   if (userMoney > 0) {
-    round(userMoney);
+    round(userMoney, startingBet);
   } else {
-    results();
+    results(startingBet);
   }
 
 }
 
-const gameStart = userMoney => {
+const gameStart = (userMoney, startingBet) => {
   // console.log(userMoney)
   // highestWinnings = userMoney;
   rolls = 0;
@@ -67,11 +66,11 @@ const gameStart = userMoney => {
   highestRoll = 0;
   console.log(`New Game! Bet = ${userMoney}`)
 
-  round(userMoney);
+  round(userMoney, startingBet);
 
 }
 
-const results = () => {
+const results = (startingBet) => {
   // console.log('results ran');
   $('#table-start-bet').html(`$${startingBet.toFixed(2)}`);
   $('#table-rolls').html(rolls);
@@ -89,6 +88,7 @@ $('.btn').on('click', function (event) {
   // console.log('clicked');
 
   let userMoney = $('#starting-bet').val().trim();
+  
 
   userMoney = userMoney.replace(/\$/g, '');
   userMoney = parseFloat(userMoney);
@@ -99,11 +99,11 @@ $('.btn').on('click', function (event) {
     return alert("You must bet more than $0.");
   }
 
-  startingBet = userMoney;
+  let startingBet = userMoney;
 
   $('#starting-bet').val("");
 
-  gameStart(userMoney);
+  gameStart(userMoney, startingBet);
 })
 
 
