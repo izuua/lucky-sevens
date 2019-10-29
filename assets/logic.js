@@ -88,7 +88,7 @@ $('.btn').on('click', function (event) {
   // console.log('clicked');
 
   let userMoney = $('#starting-bet').val().trim();
-  
+
 
   userMoney = userMoney.replace(/\$/g, '');
   userMoney = parseFloat(userMoney);
