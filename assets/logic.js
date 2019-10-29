@@ -5,7 +5,7 @@ let highestRoll = 0;
 let gamesPlayed = 0;
 // let gameOver = false;
 
-const Random = (min, max) => {
+const random = (min, max) => {
   return Math.floor((Math.random() * max) + min)
 }
 
@@ -19,8 +19,8 @@ const round = (userMoney, startingBet) => {
   updateButton(gamesPlayed);
   gamesPlayed++;
 
-  let dice1 = Random(1, 6);
-  let dice2 = Random(1, 6);
+  let dice1 = random(1, 6);
+  let dice2 = random(1, 6);
   let diceTotal = dice1 + dice2;
 
   // console.log(dice1);

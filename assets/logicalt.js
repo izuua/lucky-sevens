@@ -7,7 +7,7 @@ let gamesPlayed = 1;
 let userMoney = 0;
 // let gameOver = false;
 
-const Random = (min, max) => {
+const random = (min, max) => {
     return Math.floor((Math.random() * max) + min)
 }
 
@@ -21,8 +21,8 @@ const round = () => {
     updateButton(gamesPlayed);
     gamesPlayed++;
 
-    let dice1 = Random(1, 6);
-    let dice2 = Random(1, 6);
+    let dice1 = random(1, 6);
+    let dice2 = random(1, 6);
     let diceTotal = dice1 + dice2;
 
     // console.log(dice1);
