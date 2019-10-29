@@ -31,7 +31,6 @@ const round = (userMoney, startingBet) => {
   // console.log(`rolls = ${rolls}`);
   // console.log(`diceTotal = ${diceTotal}`);
 
-
   if (diceTotal === 7) {
     userMoney += 4;
     if (userMoney > highestWinnings) {
@@ -43,19 +42,15 @@ const round = (userMoney, startingBet) => {
     userMoney -= 1;
   }
 
-
-
   // console.log('rolled')
   console.log(`money = ${userMoney}`);
   // console.log(`highest winning = ${highestWinnings}`);
-
 
   if (userMoney > 0) {
     round(userMoney, startingBet);
   } else {
     results(startingBet);
   }
-
 }
 
 const gameStart = (userMoney, startingBet) => {
@@ -67,7 +62,6 @@ const gameStart = (userMoney, startingBet) => {
   console.log(`New Game! Bet = ${userMoney}`)
 
   round(userMoney, startingBet);
-
 }
 
 const results = (startingBet) => {
@@ -106,8 +100,6 @@ $('.btn').on('click', function (event) {
   gameStart(userMoney, startingBet);
 })
 
-
-
 //following code is to make the input form only accept currency
 $('input[data-type="currency"]').on({
   keyup: function () {
@@ -123,7 +115,6 @@ function formatNumber(n) {
   // format number 1000000 to 1,234,567
   return n.replace(/\D/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, ',')
 }
-
 
 function formatCurrency(input, blur) {
   // appends $ to value, validates decimal side
