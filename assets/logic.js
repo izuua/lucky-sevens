@@ -1,5 +1,4 @@
 // let gameWins = 0;
-let rolls = 0;
 let highestWinnings = 0;
 let highestRoll = 0;
 let gamesPlayed = 0;
@@ -15,7 +14,7 @@ const updateButton = gamesPlayed => {
   }
 }
 
-const round = (userMoney, startingBet) => {
+const round = (userMoney, startingBet, rolls) => {
   updateButton(gamesPlayed);
   gamesPlayed++;
 
@@ -47,24 +46,24 @@ const round = (userMoney, startingBet) => {
   // console.log(`highest winning = ${highestWinnings}`);
 
   if (userMoney > 0) {
-    round(userMoney, startingBet);
+    round(userMoney, startingBet, rolls);
   } else {
-    results(startingBet);
+    results(startingBet, rolls);
   }
 }
 
 const gameStart = (userMoney, startingBet) => {
   // console.log(userMoney)
   // highestWinnings = userMoney;
-  rolls = 0;
+  let rolls = 0;
   highestWinnings = 0;
   highestRoll = 0;
   console.log(`New Game! Bet = ${userMoney}`)
 
-  round(userMoney, startingBet);
+  round(userMoney, startingBet, rolls);
 }
 
-const results = (startingBet) => {
+const results = (startingBet, rolls) => {
   // console.log('results ran');
   $('#table-start-bet').html(`$${startingBet.toFixed(2)}`);
   $('#table-rolls').html(rolls);
