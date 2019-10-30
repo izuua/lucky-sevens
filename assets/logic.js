@@ -1,4 +1,4 @@
-let gameWins = 0;
+// let gameWins = 0;
 let rolls = 0;
 let highestWinnings = 0;
 let highestRoll = 0;
