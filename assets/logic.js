@@ -14,6 +14,17 @@ const updateButton = gamesPlayed => {
   }
 }
 
+const gameStart = (userMoney, startingBet) => {
+  // console.log(userMoney)
+  // highestWinnings = userMoney;
+  let rolls = 0;
+  highestWinnings = 0;
+  highestRoll = 0;
+  console.log(`New Game! Bet = ${userMoney}`)
+
+  round(userMoney, startingBet, rolls);
+}
+
 const round = (userMoney, startingBet, rolls) => {
   updateButton(gamesPlayed);
   gamesPlayed++;
@@ -50,17 +61,6 @@ const round = (userMoney, startingBet, rolls) => {
   } else {
     results(startingBet, rolls);
   }
-}
-
-const gameStart = (userMoney, startingBet) => {
-  // console.log(userMoney)
-  // highestWinnings = userMoney;
-  let rolls = 0;
-  highestWinnings = 0;
-  highestRoll = 0;
-  console.log(`New Game! Bet = ${userMoney}`)
-
-  round(userMoney, startingBet, rolls);
 }
 
 const results = (startingBet, rolls) => {
