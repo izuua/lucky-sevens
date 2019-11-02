@@ -1,5 +1,4 @@
 // let gameWins = 0;
-let highestWinnings = 0;
 let highestRoll = 0;
 let gamesPlayed = 0;
 // let gameOver = false;
