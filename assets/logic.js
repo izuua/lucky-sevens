@@ -1,5 +1,4 @@
 // let gameWins = 0;
-// let highestRoll = 0;
 let gamesPlayed = 0;
 // let gameOver = false;
 
@@ -62,7 +61,7 @@ const round = (userMoney, startingBet, rolls, highestWinnings, highestRoll) => {
   }
 }
 
-const results = (startingBet, rolls, highestWinnings) => {
+const results = (startingBet, rolls, highestWinnings, highestRoll) => {
   // console.log('results ran');
   $('#table-start-bet').html(`$${startingBet.toFixed(2)}`);
   $('#table-rolls').html(rolls);
