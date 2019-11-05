@@ -1,6 +1,3 @@
-// let gameWins = 0;
-// let gameOver = false;
-
 const random = (min, max) => {
   return Math.floor((Math.random() * max) + min)
 }
