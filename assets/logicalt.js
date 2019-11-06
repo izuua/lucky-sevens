@@ -1,11 +1,9 @@
 let startingBet = 0;
-// let gameWins = 0;
 let rolls = 0;
 let highestWinnings = 0;
 let highestRoll = 0;
 let gamesPlayed = 1;
 let userMoney = 0;
-// let gameOver = false;
 
 const random = (min, max) => {
     return Math.floor((Math.random() * max) + min)
